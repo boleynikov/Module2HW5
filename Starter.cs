@@ -24,16 +24,12 @@ namespace Module2HW5
                             _ = Actions.StartLogic();
                             break;
                         case 2:
-                            Actions.SkipLogic();
+                            _ = Actions.SkipLogic();
                             break;
                         case 3:
                             Actions.BrokeLogic();
                             break;
                     }
-                }
-                catch (BusinessException e)
-                {
-                    Logger.Instance.CreateLog(Enum.LogType.Warning, $"Action got this custom Exception: {e.Message}");
                 }
                 catch (Exception e)
                 {

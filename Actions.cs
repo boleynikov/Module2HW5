@@ -12,11 +12,13 @@ namespace Module2HW5
             Logger.Instance.CreateLog(LogType.Info, str);
             return true;
         }
-        public static void SkipLogic()
+        public static Exception SkipLogic()
         {
             string str = "Skipped logic in method: SkipLogic";
+            var exception = new BusinessException("Skipped logic in method");
             Logger.Instance.CreateLog(LogType.Warning, str);
-            throw new BusinessException("Skipped logic in method");
+            Logger.Instance.CreateLog(Enum.LogType.Warning, $"Action got this custom Exception: {exception.Message}");
+            return exception;
         }
         public static void BrokeLogic()
         {
